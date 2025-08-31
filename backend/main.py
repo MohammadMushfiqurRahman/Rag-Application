@@ -1,4 +1,5 @@
 from fastapi import FastAPI, File, UploadFile, Form
+from fastapi.middleware.cors import CORSMiddleware
 from PyPDF2 import PdfReader
 import io
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -13,6 +14,19 @@ import os
 # os.environ["HUGGINGFACEHUB_API_TOKEN"] = "your-hf-token"
 
 app = FastAPI()
+
+# CORS Middleware
+origins = [
+    "http://localhost:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Global variables to store the vector store and the QA chain
 vector_store = None
