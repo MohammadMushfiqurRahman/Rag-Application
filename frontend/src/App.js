@@ -79,7 +79,7 @@ function App() {
           <h5 className="card-title">1. Upload PDF</h5>
           <div className="input-group">
             <input type="file" className="form-control" onChange={handleFileChange} accept=".pdf" />
-            <button className="btn btn-primary" onClick={handleUpload} disabled={loading}>
+            <button className="btn btn-primary btn-hover" onClick={handleUpload} disabled={loading}>
               {loading ? 'Uploading...' : 'Upload'}
             </button>
           </div>
@@ -97,7 +97,7 @@ function App() {
               onChange={handleQuestionChange} 
               placeholder="Enter your question"
             />
-            <button className="btn btn-primary" onClick={handleAsk} disabled={loading}>
+            <button className="btn btn-primary btn-hover" onClick={handleAsk} disabled={loading}>
               {loading ? 'Asking...' : 'Ask'}
             </button>
           </div>
